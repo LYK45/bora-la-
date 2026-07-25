@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Cores Primárias */
+  --primary-color: #1E293B;
+  /* Azul Slate */
+  --bg-color: #F8FAFC;
+  /* Cinza Slate 50 */
+  --card-color: #FFFFFF;
+  /* Branco puro */
+
+  /* Cores Semânticas Estritas */
+  --income-bg: #DCFCE7;
+  /* Verde Pastel */
+  --income-text: #15803D;
+  --expense-bg: #FEE2E2;
+  /* Rosa/Vermelho Pastel */
+  --expense-text: #B91C1C;
+
+  /* Cores de Texto Neutras */
+  --text-primary: #0F172A;
+  /* Texto escuro quase preto */
+  --text-secondary: #64748B;
+  /* Cinza médio para rótulos */
+  --border-color: #E2E8F0;
+  /* Linhas de divisão finas */
+
+  /* Arredondamento Padronizado (Border Radius) */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+/* Reset universal para evitar margens indesejadas dos navegadores */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  /* Suavização da fonte */
+}

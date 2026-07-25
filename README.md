@@ -1,59 +1,72 @@
-# Frontend
+# 💰 Bora Lá? 
+## O seu gerenciador financeiro & planejador de metas - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.16.
+Este é o repositório do **Frontend** do Gerenciador Financeiro Pessoal e Planejador de Metas de Economia. A aplicação foi desenvolvida em **Angular 21** e oferece uma interface moderna, responsiva e dinâmica para que os usuários possam gerenciar suas receitas, despesas e acompanhar o progresso de suas metas de economia em tempo real.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Funcionalidades Principais
 
-```bash
-ng serve
-```
+*   **Autenticação Completa**:
+    *   Cadastro de novos usuários com validação de e-mail.
+    *   Login seguro com armazenamento de token JWT.
+    *   Recuperação de senha (Recovery).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+*   **Painel Geral (Dashboard)**:
+    *   Gráficos interativos utilizando `Chart.js` e `ng2-charts`.
+    *   Visualização rápida de Saldo Atual, Total de Receitas e Total de Despesas.
+    *   Detalhamento de despesas agrupadas por categorias.
+    *   Visualização rápida do progresso das metas financeiras ativas.
+*   **Gerenciador de Transações**:
+    *   Cadastro, edição e exclusão de receitas e despesas.
+    *   Associação inteligente de transações a metas específicas (ex: aportes ou resgates).
+*   **Planejador de Metas**:
+    *   Criação e acompanhamento de metas de economia (ex: viagem, fundo de reserva).
+    *   Visualização de barras de progresso dinâmicas em porcentagem.
+    *   Sincronização em tempo real: ao adicionar um aporte (despesa associada a uma meta) ou resgate (receita associada), o valor atual da meta é atualizado automaticamente.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Tecnologias Utilizadas
 
-```bash
-ng generate component component-name
-```
+*   **Framework Principal**: [Angular](https://angular.dev/) (v21.2.0)
+*   **Estilização**: CSS Moderno (Vanilla CSS com variáveis e design system responsivo)
+*   **Gráficos**: [Chart.js](https://www.chartjs.org/) & [ng2-charts](https://valor-software.com/ng2-charts/)
+*   **Roteamento e Proteção**: Angular Router com `authGuard`
+*   **Renderização**: Server-Side Rendering (SSR) habilitado para melhor performance
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## ⚙️ Pré-requisitos e Instalação
 
-## Building
+### 1. Pré-requisitos
+Certifique-se de ter instalado em sua máquina:
+*   [Node.js](https://nodejs.org/) (Recomendado v20 ou superior)
+*   [npm](https://www.npmjs.com/) (Gerenciador de pacotes do Node)
+*   **API (Backend)** em execução. O backend em Node.js/Express deve estar rodando (normalmente na porta `5000`).
 
-To build the project run:
+### 2. Configuração do Backend
+Para que o frontend funcione corretamente, você deve configurar e rodar o repositório do backend. Vá até o repositório do backend e configure-o antes de rodar o frontend.
 
-```bash
-ng build
-```
+### 3. Configuração do Frontend
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1. **Clonar o Repositório**:
+   ```bash
+   git clone https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
+   cd NOME-DO-REPOSITORIO
+   ```
 
-## Running unit tests
+2. **Instalar as Dependências**:
+   No diretório raiz do frontend, execute:
+   ```bash
+   npm install
+   ```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+3. **Iniciar o Servidor de Desenvolvimento**:
+   Para rodar localmente a aplicação frontend:
+   ```bash
+   npm start
+   ```
+   Acesse no navegador: `http://localhost:4200/`.
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---

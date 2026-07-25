@@ -1,0 +1,180 @@
+/* Container da Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 80px;
+  background-color: var(--card-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+}
+
+.nav-links a {
+  margin: 0 16px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Botões do Topo */
+.btn-text {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.btn-primary {
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: var(--card-color);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Seção Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 24px;
+  background-color: var(--bg-color);
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+.hero .badge {
+  background-color: #E2E8F0;
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+}
+
+/* Botões da Hero */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-hero-primary {
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: var(--card-color);
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.btn-hero-secondary {
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btn-hero-secondary:hover {
+  background-color: #F1F5F9;
+}
+
+/* Recursos (Features) */
+.features {
+  padding: 80px 80px;
+  background-color: var(--card-color);
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 60px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.feature-card {
+  background-color: var(--bg-color);
+  padding: 40px 30px;
+  border-radius: var(--radius-lg);
+  /* Arredondamento 16px */
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+.feature-card .icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Rodapé */
+.footer {
+  padding: 40px 24px;
+  text-align: center;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 14px;
+}

@@ -1,12 +1,28 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Auth } from './core/auth-services/auth';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('frontend');
+  private router = inject(Router);
+  private authService = inject(Auth);
+
+  showSidebar = false;
+
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const publicRoutes = ['/', '/login', '/register', '/recovery'];
+        this.showSidebar = this.authService.isLoggedIn() && !publicRoutes.includes(event.urlAfterRedirects);
+      }
+    });
+  }
+  logout() {
+    this.authService.logout();
+  }
 }

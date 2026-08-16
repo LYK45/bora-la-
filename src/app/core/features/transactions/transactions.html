@@ -1,1 +1,108 @@
-<p>transactions works!</p>
+<div class="transactions-container">
+
+  <div class="page-header">
+    <div>
+      <h1>Minhas Transações</h1>
+      <p>Gerencie suas receitas e despesas com simplicidade</p>
+    </div>
+    <button (click)="openModal()" class="btn-primary-action">+ Nova Transação</button>
+  </div>
+
+  <div class="filters-bar">
+    <input type="text" placeholder="Buscar por descrição ou categoria..." (input)="onSearchChange($event)"
+      class="search-input" />
+    <select (change)="onFilterTipoChange($event)" class="filter-select">
+      <option value="">Todos os Tipos</option>
+      <option value="receita">Receitas</option>
+      <option value="despesa">Despesas</option>
+    </select>
+  </div>
+
+  <div class="table-card">
+    @if (filteredTransactions.length === 0) {
+    <div class="empty-state">
+      <p>Nenhuma transação encontrada.</p>
+    </div>
+    } @else {
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Categoria</th>
+          <th>Data</th>
+          <th>Tipo</th>
+          <th class="text-right">Valor</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (t of filteredTransactions; track t._id) {
+        <tr>
+          <td class="desc-cell">{{ t.descricao }}</td>
+          <td><span class="category-tag">{{ t.categoria }}</span></td>
+          <td>{{ t.data | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <span class="type-badge" [class.receita]="t.tipo === 'receita'" [class.despesa]="t.tipo === 'despesa'">
+              {{ t.tipo === 'receita' ? 'Receita' : 'Despesa' }}
+            </span>
+          </td>
+          <td class="value-cell text-right" [class.income]="t.tipo === 'receita'"
+            [class.expense]="t.tipo === 'despesa'">
+            {{ t.tipo === 'receita' ? '+' : '-' }} {{ t.valor | currency: 'BRL' }}
+          </td>
+          <td class="text-center">
+            <button (click)="onDelete(t._id!)" class="btn-delete" title="Excluir Transação">🗑️</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    }
+  </div>
+
+  @if (isModalOpen) {
+  <div class="modal-backdrop" (click)="closeModal()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Nova Transação</h2>
+        <button (click)="closeModal()" class="btn-close-modal">&times;</button>
+      </div>
+
+      <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()" class="modal-form">
+        <div class="form-group">
+          <label for="tipo">Tipo</label>
+          <select id="tipo" formControlName="tipo" class="form-select">
+            <option value="receita">Receita</option>
+            <option value="despesa">Despesa (Aporte/Gasto)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" formControlName="valor" placeholder="0.00" step="0.01" />
+        </div>
+
+        <div class="form-group">
+          <label for="categoria">Categoria</label>
+          <input type="text" id="categoria" formControlName="categoria" placeholder="Ex: Alimentação, Salário" />
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <input type="text" id="descricao" formControlName="descricao" placeholder="Ex: Compra de supermercado" />
+        </div>
+
+        <div class="form-group">
+          <label for="data">Data</label>
+          <input type="date" id="data" formControlName="data" />
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" (click)="closeModal()" class="btn-cancel">Cancelar</button>
+          <button type="submit" [disabled]="transactionForm.invalid" class="btn-submit">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  }
+</div>

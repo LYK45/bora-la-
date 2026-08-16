@@ -1,0 +1,6 @@
+@if (isVisible) {
+<div class="snackbar-container" [class]="type" (click)="close()">
+  <span class="snackbar-message">{{ message }}</span>
+  <button class="snackbar-close">&times;</button>
+</div>
+}

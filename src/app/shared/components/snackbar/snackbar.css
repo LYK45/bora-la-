@@ -1,0 +1,75 @@
+.snackbar-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 300px;
+  max-width: 420px;
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  /* 8px */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  cursor: pointer;
+
+  /* Animação premium de entrada */
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.snackbar-message {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.snackbar-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.snackbar-close:hover {
+  opacity: 1;
+}
+
+/* 🟢 Tema de Sucesso (Verde) */
+.snackbar-container.success {
+  background-color: #DEF7EC;
+  color: #03543F;
+  border-left: 4px solid var(--income-text);
+}
+
+/* 🔴 Tema de Erro (Vermelho) */
+.snackbar-container.error {
+  background-color: #FDE8E8;
+  color: #9B1C1C;
+  border-left: 4px solid var(--expense-text);
+}
+
+/* 🔵 Tema de Informação (Azul) */
+.snackbar-container.info {
+  background-color: #EBF5FF;
+  color: #1E429F;
+  border-left: 4px solid #3F83F8;
+}

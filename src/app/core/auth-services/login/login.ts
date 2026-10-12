@@ -29,7 +29,11 @@ export class Login {
   onSubmit() {
     if (this.loginForm.invalid) return;
 
-    this.authService.login(this.loginForm.value).subscribe({
+    const { email, senha } = this.loginForm.getRawValue();
+    this.authService.login({
+      email: email.trim().toLowerCase(),
+      senha
+    }).subscribe({
       next: () => {
         this.router.navigate(['/dashboard']);
       },

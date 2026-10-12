@@ -1,0 +1,57 @@
+<main class="dashboard">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Visão geral</p>
+      <h1>Seu painel financeiro</h1>
+      <p class="page-description">Acompanhe suas receitas, despesas e metas em um só lugar.</p>
+    </div>
+    <a routerLink="/transactions" class="primary-action">+ Nova transação</a>
+  </header>
+
+  @if (isLoading()) {
+    <p class="status-message" role="status">Carregando seu resumo financeiro...</p>
+  } @else if (errorMessage()) {
+    <section class="status-card" role="alert">
+      <p>{{ errorMessage() }}</p>
+      <button type="button" class="secondary-action" (click)="retry()">Tentar novamente</button>
+    </section>
+  } @else if (dashboardData(); as data) {
+    <section class="summary-grid" aria-label="Resumo financeiro">
+      <article class="summary-card">
+        <h2>Saldo atual</h2>
+        <p>{{ data.saldo | currency: 'BRL' }}</p>
+      </article>
+      <article class="summary-card">
+        <h2>Receitas</h2>
+        <p>{{ data.totalReceitas | currency: 'BRL' }}</p>
+      </article>
+      <article class="summary-card">
+        <h2>Despesas</h2>
+        <p>{{ data.totalDespesas | currency: 'BRL' }}</p>
+      </article>
+      <article class="summary-card">
+        <h2>Metas</h2>
+        <p>{{ data.metas.length }}</p>
+      </article>
+    </section>
+
+    @if (data.totalReceitas === 0 && data.totalDespesas === 0 && data.metas.length === 0) {
+      <section class="empty-state">
+        <h2>Vamos começar?</h2>
+        <p>Seu painel será preenchido conforme você adicionar receitas, despesas e metas.</p>
+        <a routerLink="/transactions" class="secondary-action">Adicionar primeira transação</a>
+      </section>
+    } @else {
+      <section class="dashboard-links" aria-label="Acessos rápidos">
+        <a routerLink="/transactions" class="quick-link">
+          <span>Transações</span>
+          <span>Gerencie suas receitas e despesas →</span>
+        </a>
+        <a routerLink="/goals" class="quick-link">
+          <span>Metas</span>
+          <span>Acompanhe seus objetivos financeiros →</span>
+        </a>
+      </section>
+    }
+  }
+</main>

@@ -3,7 +3,7 @@ import { Home } from './core/home/home';
 import { Login } from './core/auth-services/login/login';
 import { Register } from './core/auth-services/register/register';
 import { Recovery } from './core/auth-services/recovery/recovery';
-import { DashboardView } from './core/dashboard/dashboard-view/dashboard-view';
+import { DashboardView } from './core/features/dashboard/dashboard-view';
 import { authGuard } from './core/auth-services/guards/auth-guard';
 import { Transactions } from './core/features/transactions/transactions';
 import { Profile } from './core/profile/profile';

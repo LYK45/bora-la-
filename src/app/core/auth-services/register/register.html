@@ -9,7 +9,7 @@
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
       <div class="form-group">
         <label for="nome">Nome Completo</label>
-        <input type="nome" id="nome" formControlName="nome" placeholder="Seu nome"
+        <input type="text" id="nome" formControlName="nome" placeholder="Seu nome"
           [class.error]="isFieldInvalid('nome')" />
         @if (isFieldInvalid('nome')) {
         <span class="error-text">O nome é obrigatório</span>
@@ -38,7 +38,7 @@
         <label for="confirmarSenha">Confirmar Senha</label>
         <input type="password" id="confirmarSenha" formControlName="confirmarSenha" placeholder="Repita a senha"
           [class.error]="isFieldInvalid('confirmarSenha') || registerForm.hasError('mismatch')" />
-        @if (isFieldInvalid('mismatch') && registerForm.get('confirmarSenha')?.touched) {
+        @if (registerForm.hasError('mismatch') && registerForm.get('confirmarSenha')?.touched) {
         <span class="error-text">As senhas não coincidem</span>
         }
       </div>

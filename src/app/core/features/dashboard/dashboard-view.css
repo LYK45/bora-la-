@@ -1,0 +1,154 @@
+.dashboard {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 2.5rem auto;
+  color: #1f2937;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.page-description {
+  margin-bottom: 0;
+  color: #64748b;
+}
+
+.primary-action,
+.secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-action {
+  flex-shrink: 0;
+  background: #2563eb;
+  color: #fff;
+}
+
+.secondary-action {
+  border: 1px solid #2563eb;
+  background: #fff;
+  color: #1d4ed8;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.summary-card,
+.empty-state,
+.status-card,
+.quick-link {
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(15 23 42 / 5%);
+}
+
+.summary-card h2 {
+  margin-bottom: 0.75rem;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.summary-card p {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.empty-state,
+.status-card {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.empty-state p,
+.status-message {
+  color: #64748b;
+}
+
+.dashboard-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.quick-link {
+  display: grid;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.quick-link span:first-child {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.quick-link span:last-child {
+  color: #64748b;
+}
+
+.primary-action:focus-visible,
+.secondary-action:focus-visible,
+.quick-link:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-grid,
+  .dashboard-links {
+    grid-template-columns: 1fr;
+  }
+}

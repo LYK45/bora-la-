@@ -11,8 +11,9 @@ export class TransactionService {
   private apiUrl = environment.apiUrl;
   private http = inject(HttpClient);
 
-  getTransactions(): Observable<Transaction[]> { // 👈 Array []
-    return this.http.get<Transaction[]>(`${this.apiUrl}/transactions`);
+  getTransactions(): Observable<Transaction[]> {
+    const timestamp = new Date().getTime(); // 👈 Cria a marcação de tempo
+    return this.http.get<Transaction[]>(`${this.apiUrl}/transactions?t=${timestamp}`); // 👈 Adiciona na URL
   }
 
   createTransaction(transaction: Transaction): Observable<Transaction> {

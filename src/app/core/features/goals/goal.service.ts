@@ -15,12 +15,12 @@ export class GoalsService {
     return this.http.get<Goal[]>(`${this.apiUrl}/goals`);
   }
 
-  createGoal(transaction: Goal): Observable<Goal> {
-    return this.http.post<Goal>(`${this.apiUrl}/goals`, transaction);
+  createGoal(goal: Goal): Observable<Goal> {
+    return this.http.post<Goal>(`${this.apiUrl}/goals`, goal);
   }
 
-  updateGoal(id: string, transaction: Goal): Observable<Goal> {
-    return this.http.put<Goal>(`${this.apiUrl}/goals/${id}`, transaction);
+  updateGoal(id: string, goal: Goal): Observable<Goal> {
+    return this.http.put<Goal>(`${this.apiUrl}/goals/${id}`, goal);
   }
 
   deleteGoal(id: string): Observable<any> {

@@ -36,7 +36,15 @@ export class Register {
 
   onSubmit() {
     if (this.registerForm.invalid) return;
-    this.authService.register(this.registerForm.value).subscribe({
+
+    const { nome, email, senha } = this.registerForm.value;
+    const payload = {
+      nome: (nome || '').trim(),
+      email: (email || '').trim().toLowerCase(),
+      senha
+    };
+
+    this.authService.register(payload).subscribe({
       next: () => {
         // Cadastro realizado com sucesso! Redireciona para o login
         this.router.navigate(['/login']);
